@@ -24,10 +24,10 @@ jobs:
         run: npm install -g less less-plugin-clean-css
 
       - name: Compilar shop.css
-        run: lessc --clean-css="--s1 --advanced" src/main-shop.less dist/shop.css
+        run: lessc --clean-css="--s1 --advanced" src/main-dynamic.less dist/dynamic.css
 
       - name: Compilar app.css
-        run: lessc --clean-css="--s1 --advanced" src/main-app.less dist/app.css
+        run: lessc --clean-css="--s1 --advanced" src/main-apps.less dist/apps.css
 
       - name: Commit del CSS compilado
         run: |

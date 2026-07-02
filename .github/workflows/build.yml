@@ -1,0 +1,38 @@
+# .github/workflows/build.yml
+name: Compilar LESS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar compilador
+        run: npm install -g less less-plugin-clean-css
+
+      - name: Compilar shop.css
+        run: lessc --clean-css="--s1 --advanced" src/main-shop.less dist/shop.css
+
+      - name: Compilar app.css
+        run: lessc --clean-css="--s1 --advanced" src/main-app.less dist/app.css
+
+      - name: Commit del CSS compilado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dist/*.css
+          git diff --staged --quiet || git commit -m "chore: rebuild CSS [skip ci]"
+          git push

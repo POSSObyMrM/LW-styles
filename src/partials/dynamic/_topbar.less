@@ -1,0 +1,85 @@
+/* Topbar Access Button */
+
+.lw-topbar .learnworlds-button-outline-brand {
+  color: var(--black);
+  border-color: var(--black);
+}
+
+/* Notification bubble */
+
+.lw-topbar .lw-topbar-notif {
+    top: 4px !important;
+    background-color: red;
+    border-color: red;
+}
+
+.lw-topbar .lw-topbar-notif .lw-topbar-notif-lbl {
+	font-weight: bold;
+  color: #fff;
+}
+
+/* Styling Submenu */
+
+.lw-topbar-submenu {
+  background-color: #FBE6DF;
+  border-radius: var(--radius);
+}
+
+.lw-topbar-submenu .lw-topbar-submenu-item:hover {
+  background-color: #F9D4C8;
+  border-radius: var(--radius-int);
+  cursor: pointer;
+}
+
+
+@media (max-width: 480px) {
+  .lw-topbar .learnworlds-section-content:before,
+  .lw-topbar .learnworlds-section-content:after {
+    bottom: -24px;
+  }
+}
+
+head:has(link[rel="canonical"][href*="/course/"]) + body .lw-topbar,
+head:has(link[rel="canonical"][href*="/course/"]) + body #pageContent,
+head:has(link[rel="canonical"][href*="/programas"]) + body .lw-topbar,
+head:has(link[rel="canonical"][href*="/programas"]) + body #pageContent,
+head:has(link[rel="canonical"][href*="/cursos"]) + body .lw-topbar,
+head:has(link[rel="canonical"][href*="/cursos"]) + body #pageContent,
+head:has(link[rel="canonical"][href*="/chutes"]) + body .lw-topbar,
+head:has(link[rel="canonical"][href*="/chutes"]) + body #pageContent   { 
+    background-color: var(--gray-bg) !important; 
+}
+
+head:has(link[rel="canonical"][href*="/course/"]) + body .lw-topbar .learnworlds-section-content:before,
+head:has(link[rel="canonical"][href*="/course/"]) + body .lw-topbar .learnworlds-section-content:after,
+head:has(link[rel="canonical"][href*="/programas"]) + body .lw-topbar .learnworlds-section-content:before,
+head:has(link[rel="canonical"][href*="/programas"]) + body .lw-topbar .learnworlds-section-content:after,
+head:has(link[rel="canonical"][href*="/cursos"]) + body .lw-topbar .learnworlds-section-content:before,
+head:has(link[rel="canonical"][href*="/cursos"]) + body .lw-topbar .learnworlds-section-content:after,
+head:has(link[rel="canonical"][href*="/chutes"]) + body .lw-topbar .learnworlds-section-content:before,
+head:has(link[rel="canonical"][href*="/chutes"]) + body .lw-topbar .learnworlds-section-content:after {
+  background: radial-gradient(circle at var(--pos), transparent 16px, var(--ash-900) 16px);
+}
+
+head:has(link[rel="canonical"][href*="/course/"]) + body .lw-topbar-option-link-lbl,
+head:has(link[rel="canonical"][href*="/programas"]) + body .lw-topbar-option-link-lbl,
+head:has(link[rel="canonical"][href*="/cursos"]) + body .lw-topbar-option-link-lbl {
+  color: var(--brand-bg);
+}
+
+head:has(link[rel="canonical"][href*="/course/"]) + body .lw-topbar-option-link-lbl .icon-item::after,
+head:has(link[rel="canonical"][href*="/programas"]) + body .lw-topbar-option-link-lbl .icon-item::after,
+head:has(link[rel="canonical"][href*="/cursos"]) + body .lw-topbar-option-link-lbl .icon-item::after {
+  filter: 
+    sepia(1) 
+    saturate(1) 
+    invert(1) 
+    hue-rotate(160deg);
+}
+
+head:has(link[rel="canonical"][href*="/course/"]) + body .lw-topbar .lw-logo,
+head:has(link[rel="canonical"][href*="/programas"]) + body .lw-topbar .lw-logo,
+head:has(link[rel="canonical"][href*="/cursos"]) + body .lw-topbar .lw-logo {
+  filter: 
+    invert(84%) sepia(4%) saturate(1503%) hue-rotate(327deg) brightness(115%) contrast(86%)
+}

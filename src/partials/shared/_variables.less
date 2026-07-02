@@ -1,3 +1,11 @@
+/* ==========================================================================
+   VARIABLES GLOBALES
+   Shared between apps.css and dynamic.css. Where the two originals defined
+   the same variable with different values, dynamic.css's value wins.
+   apps.css's --context-menu-* variables have no dynamic.css counterpart
+   (not a conflict) so they're carried over as-is.
+   ========================================================================== */
+
 :root {
   /* Colores Base */
   --black: #333333;
@@ -6,10 +14,10 @@
   --gray-bg: #212121;
   --gray-bg-light: #2a2a2a;
   --silver: #f4f4f4;
-  
+
   --salmon-50:  #FDF3EF;
   --salmon-100: #FBE6DF;
-  --salmon-150: #F9D4C8;
+  --salmon-150: #f9d4c8;
   --salmon-200: #F7C8B9;
   --salmon-300: #F1A893;
   --salmon-400: #DB8874;
@@ -20,9 +28,9 @@
   /* Paleta LW */
   --brand-color: var(--salmon-200);
   --accent-color: var(--salmon-300);
-  --dark-bg-color: var(--ash-900);;
+  --dark-bg-color: var(--ash-900);
   --dark-panel-color: var(--ash-700);
-  --clear-bg-color: var(--salmon-150);
+  --clear-bg-color: var(--salmon-100);
   --body-bg-color: var(--salmon-150);
   --clear-panel-color: var(--salmon-200);
   --clear-panel-color-alt: var(--salmon-100);
@@ -43,15 +51,20 @@
   --blog-blue-bg: #d4dff3;
   --blog-blue-menu-bg: #d4dff399;
 
+  /* Context Menu (apps.css only, no conflict) */
+  --context-menu-bg: var(--white);
+  --context-menu-border: 1px solid var(--brand-color);
+  --context-menu-radius: 8px;
+  --context-menu-width: 220px;
+
   /* Dimensiones Generales */
   --radius: 16px;
   --radius-int: 14px;
   --spacing-base: 24px;
   --header-h: 82px;
   --inbox-avatar-size: 64px;
-  
+
   /* Spacing */
-  
   --gap-L: 24px;
   --gap-M: 16px;
   --gap-S:  8px;

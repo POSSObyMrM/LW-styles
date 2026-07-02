@@ -1,0 +1,741 @@
+/* ==========================================================================
+   1. VARIABLES GLOBALES
+   ========================================================================== */
+
+:root {
+  /* Escala cromática base */
+  --black: #333333;
+  --white: #ffffff;
+  --gray-light: #f0f0f0;
+  --silver: #f4f4f4;
+
+  --salmon-50:  #FDF3EF;
+  --salmon-100: #FBE6DF;
+  --salmon-150: #F9D4C8;
+  --salmon-200: #F7C8B9;
+  --salmon-300: #F4B8A6;
+  --salmon-400: #DB8874;
+
+  --ash-700: #2A2A2A;
+  --ash-900: #212121;
+  --ash-1000: #171717;
+
+  /* Tokens semánticos — Paleta LW */
+  --brand-color: var(--salmon-200);
+  --accent-color: var(--salmon-300);
+  --dark-bg-color: var(--ash-900);
+  --dark-panel-color: var(--ash-700);
+  --clear-bg-color: var(--salmon-150);
+  --body-bg-color: var(--salmon-100);
+  --clear-panel-color: var(--salmon-150);
+  --clear-panel-color-alt: var(--salmon-200);
+  --dark-text: var(--ash-900);
+  --clear-text: var(--salmon-100);
+  --brand-text: var(--salmon-200);
+  --nested-clear-bg: #ffffff55;
+
+  /* Tokens semánticos — Marca (Beiges/Naranjas) */
+  --brand-bg: #fbe6df;
+  --soft-beige: #fdf3ef;
+  --mid-beige: #ab7c6d26;
+
+  /* Tokens semánticos — Blog (Azules) */
+  --blog-blue: #abc1e8;
+  --blog-blue-dark: #6986B9;
+  --blog-blue-bg: #d4dff3;
+  --blog-blue-menu-bg: #d4dff399;
+
+  /* Context Menu */
+  --context-menu-bg: var(--white);
+  --context-menu-border: 1px solid var(--brand-color);
+  --context-menu-radius: 8px;
+  --context-menu-width: 220px;
+
+  /* Dimensiones Generales */
+  --radius: 16px;
+  --radius-int: 14px;
+  --spacing-base: 24px;
+  --header-h: 82px;
+  --inbox-avatar-size: 64px;
+}
+
+
+/* ==========================================================================
+   2. ESTILOS BASE GLOBALES
+   ========================================================================== */
+
+h1, h2, h3, h4 { font-weight: 600 !important; }
+
+.radius-full { border-radius: 50% !important; }
+
+.aspect-ratio-square {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+body { background: var(--body-bg-color)}
+
+/* ==========================================================================
+   COURSE NAVIGATOR
+   ========================================================================== */
+
+
+.slug-path-player .default.gray-minimal .-first-col-topbar, .slug-path-player .default.gray-minimal .-default-course-player-name-progress, .slug-path-player .default.gray-minimal .-first-col-tabs, .slug-path-player .default.gray-minimal .lrn-path-cont-attachment-btn {
+  background-color: var(--ash-700);
+}
+
+.slug-path-player .default.gray-minimal .-default-course-player-name, .slug-path-player .default.gray-minimal .-default-course-player-progress-perc-num, .slug-path-player .default.gray-minimal .-default-course-player-back, .slug-path-player .default.gray-minimal .first-col-tab-lbl, .slug-path-player .default.gray-minimal .learning-program-context__title, .slug-path-player .default.gray-minimal .learning-program-context__subtitle {
+  color: var(--salmon-200) !important;
+}
+
+.-default-course-player-name {
+  font-family: "Poppins", sans-serif;
+  font-size: 2em
+}
+
+.-default-course-player-progress-bar {
+  background-color: #555 !important;
+  border-radius: 4px;
+}
+
+.-default-course-player-progress-bar-interior {
+  background-color: var(--salmon-400) !important;
+  border-radius: 4px;
+}
+
+.lrn-path-chapter-open .lrn-path-chapter-name {
+  font-weight: 600 !important;
+  color: var(--ash-700) !important;
+}
+
+
+/* ==========================================================================
+   3. ELEMENTOS GLOBALES (FORMULARIOS Y MENÚ SUPERIOR)
+   ========================================================================== */
+
+/* Formularios */
+.learnworlds-input-solid-light {
+  background: var(--silver) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+}
+
+/* Top Menu — iconos de navegación */
+.icon-item { margin: 0 -4px; }
+.icon-item span { display: none; }
+.icon-item::after {
+  content: "";
+  margin-top: 8px;
+  display: block;
+  height: 26px;
+  width: 32px;
+}
+
+#inbox-icon::after   { content: url("https://lwfiles.mycourse.app/6906808006c937ca7bc53cda-public/svgs/7e34c6284d28503950f9935ecc6d3dd0.svg"); }
+#config-icon::after  { content: url("https://lwfiles.mycourse.app/6906808006c937ca7bc53cda-public/svgs/5d33071e5a8513a6b670a3adbff33486.svg"); }
+#profile-icon::after { content: url("https://lwfiles.mycourse.app/6906808006c937ca7bc53cda-public/svgs/01999538a939c72a37be788b1fbbda19.svg"); }
+#logout-icon::after  { content: url("https://lwfiles.mycourse.app/6906808006c937ca7bc53cda-public/svgs/a7bb1be3cf6b2f0cd8b02df59ff2caf0.svg"); }
+
+.lw-topbar { backdrop-filter: blur(10px); }
+.lw-topbar > .lw-h-row { background: none; }
+
+.lw-topbar-notif {
+  top: 4px !important;
+  background: red !important;
+}
+.lw-topbar-notif .lw-topbar-notif-lbl {
+  color: var(--body-bg-color);
+  font-weight: bold;
+}
+
+.hamburger-open .lw-topbar-hamburger-menu {
+  height: 65vh;
+  background: var(--brand-bg);
+  box-shadow: 0 0 0 1024px rgba(51,51,51,0.8), 0 0 64px var(--black), 0 0 22px var(--black);
+}
+
+.mobile-nav-menu .mobile-nav-menu-item { margin: 12px 0; }
+.mobile-nav-menu-item:nth-last-child(-n+4) {
+  display: inline-block;
+  margin: 12px;
+}
+
+.lw-topbar .learnworlds-section-content {
+  position: relative;
+}
+
+.lw-topbar .learnworlds-section-content:before,
+.lw-topbar .learnworlds-section-content:after {
+  content: '';
+  position: absolute;
+  bottom: -32px;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at var(--pos), transparent 16px, var(--salmon-100) 16px);
+  pointer-events: none;
+  z-index: 100;
+}
+
+.lw-topbar .learnworlds-section-content::before {
+  left: 0px;
+  --pos: 100% 100%;
+}
+
+.lw-topbar .learnworlds-section-content::after {
+  right: 0px;
+  --pos: 0% 100%;
+}
+
+
+/* ==========================================================================
+   4. TARJETAS DE CURSOS (CUSTOM COURSE CARD)
+   ========================================================================== */
+
+.box-course {
+  border: 2px solid var(--black);
+  border-radius: var(--radius);
+  position: relative;
+  padding-bottom: 64px;
+}
+
+.box-course-title {
+  font-weight: bold;
+  font-size: 1.6em;
+  height: 180px;
+}
+
+.box-course-descr { display: none; }
+.box-course-cont { background-color: transparent; }
+
+.box-course-img {
+  background: transparent !important;
+  height: 24px !important;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.box-course-img::after { display: none !important; }
+
+/* Barra de progreso */
+.box-course-progress-bar {
+  height: 32px;
+  border-radius: 0 0 14px 14px;
+  overflow: hidden;
+  background: var(--nested-clear-bg);
+}
+
+.box-course-progress-interior { background-color: var(--black) !important; }
+
+.box-course-progress-perc {
+  color: var(--black) !important;
+  margin-right: 8px;
+  margin-bottom: 28px;
+  font-weight: bold;
+}
+.box-course-progress-perc::before {
+  content: "Completado ";
+  font-weight: normal;
+}
+
+
+/* ==========================================================================
+   5. SOCIAL APP & EMBEDS
+   ========================================================================== */
+
+
+/* Context Menu */
+.context-menu-container { width: var(--context-menu-width); background: var(--context-menu-bg) !important; }
+.context-menu-container * { background: var(--context-menu-bg); }
+.context-menu-container li { margin: 4px 0; }
+.context-menu-container button svg { margin-right: 4px; margin-top: 3px; }
+.context-menu-container > div { padding: 8px; }
+
+/* Social App principal */
+#social-app,
+.app-container,
+.standalone-feed,
+.social-app-page,
+.-social-app-container, 
+.author-social-app-page .-social-app-container {
+  background-color: var(--body-bg-color);
+  color: var(--accent-color);
+}
+
+#pageContent .social-app.standalone-feed { border-radius: var(--spacing-base); }
+.social-app { padding: 0; }
+
+#social-app .lw-body-bg { border-radius: var(--radius); }
+#social-app .social-widgets .lw-body-bg { background: var(--clear-panel-color); }
+
+/* Fade inferior del contenedor principal */
+#social-app .social-main-container { position: relative; }
+#social-app .social-main-container::after {
+  content: "";
+  display: block;
+  background: linear-gradient(to top, #f6e1dbAA 10%, #f6e1db00);
+  height: 24px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+/* Social Sidebar */
+#social-app .-social-sidebar-wrapper { padding: 0 0 16px 0;}
+#social-app .-social-sidebar { background: var(--salmon-50); }
+#social-app .-social-sidebar .lw-body-bg { background: none; }
+#social-app .-social-sidebar .social-group-item.lw-body-bg:not(.selected-channel):hover { background: var(--salmon-100); }
+#social-app .-social-sidebar .social-group-item.lw-body-bg.selected-channel { background: var(--salmon-150); }
+#social-app .-social-sidebar-content { padding: 8px 18px; }
+
+/* Perfil social */
+.slug-profile #social-app { margin-top: 32px; }
+.slug-profile #social-app .member-icon { margin-right: 12px; }
+
+/* Estado vacío */
+.-social-empty {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 24px 16px;
+  border-radius: var(--radius);
+  color: var(--salmon-400);
+}
+
+/* Ordenamiento y selects */
+.social-post-sort { color: var(--dark-text); }
+
+.social-select-wrapper {
+  background: none;
+  border: 1px solid var(--black);
+  margin-left: 8px;
+}
+.social-select-wrapper .social-select { padding: 2px 24px 2px 8px; }
+
+/* Layout general */
+.social-content { padding-bottom: 0; }
+.social-header-container { background: none !important; padding: 0; }
+.social-header-context-icon { margin-right: 8px; }
+
+.social-user-card {
+  background: #fff;
+  border-radius: 16px;
+}
+
+/* Post — ítem y editor */
+.post-item {
+  background: var(--white);
+  border-radius: var(--radius);
+}
+.post-item .social-comment-editor { background: none !important; }
+
+.post-editor-container { background-color: var(--white); }
+
+.social-text-editor {
+  background-color: var(--silver) !important;
+  border-radius: var(--radius);
+}
+.post-item .social-text-editor {
+  background-color: var(--silver) !important;
+  min-width: 100%;
+  margin-bottom: 8px;
+}
+
+.post-editor-tools-icon-container {
+  border-radius: var(--radius);
+  padding: 1px;
+  border: 1px solid transparent;
+  transition: border 0.15s ease-in;
+}
+.post-editor-tools-icon-container:hover { border: 1px solid var(--black); }
+
+.post-item-header-container .a-i-c { align-items: start; }
+.post-item-header-container .post-name-tags { margin-bottom: -8px; }
+.post-item-header-container + .post-item-content { margin: 8px 0; }
+
+.post-editor-submit-button {
+  background: var(--dark-panel-color);
+  color: var(--brand-color);
+}
+.standalone-feed .social-member--role, .social-app-page .social-member--role, .author-social-app-page .social-member--role {
+  border-color: var(--salmon-400);
+  color: var(--salmon-400);
+}
+
+/* Comentarios y previews de enlace */
+.standalone-feed .social-comment-text-content, .social-app-page .social-comment-text-content, .author-social-app-page .social-comment-text-content, .standalone-feed .social-text-editor, .social-app-page .social-text-editor, .author-social-app-page .social-text-editor {
+  background-color: var(--salmon-50);
+  border-radius: 8px;
+}
+
+.social-link-preview {
+  background-color: var(--salmon-50);
+  border-radius: 8px;
+  border: solid 1px var(--brand-color);
+}
+
+.post-item-content ol,
+.post-item-content ul,
+.social-comment-text-content ol,
+.social-comment-text-content ul,
+.social-text-editor ol,
+.social-text-editor ul {
+  padding: 0;
+}
+
+.tweet-action { display: none; }
+
+.social-members-container {
+  background: none;
+}
+
+.social-members-container .member-list-container {
+  background: var(--salmon-50);
+}
+
+.social-content {
+  padding-top: 0;
+}
+
+.social-content-scroll {
+    border-radius: 16px;
+}
+
+.social-header-context-icon {
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+/* Social widgets */
+.social-widgets {
+  padding-top: 0 !important;
+}
+
+/* Embeded social feed */
+
+.social-app.standalone-feed {
+    border-radius: var(--radius) !important;
+}
+
+/* ==========================================================================
+   6. PERFIL (PROFILE)
+   ========================================================================== */
+
+.account-app {
+  padding: 0;
+}
+
+.account-app > h2 {
+  color: var(--dark-text);
+}
+
+.account-section-header .learnworlds-button.text-only {
+  color: var(--dark-text);
+  border: 2px solid var(--dark-text);
+  padding: 4px 8px !important;
+}
+.account-section-header .learnworlds-button.lw-currentColor-text,
+.account-section-header .learnworlds-button.lw-currentColor-text:hover {
+  color: var(--salmon-400);
+}
+
+.account-section-header .learnworlds-button:hover {
+  background: var(--dark-text);
+  color: var(--clear-text);
+  cursor: pointer !important;
+}
+
+#tabsWrapper { background-color: #212121 !important; }
+
+.account-section-navigation a {
+  margin-bottom: 24px !important;
+  text-wrap: balance;
+}
+.account-section-navigation a:not(.active):hover {
+  text-decoration: underline;
+}
+.account-section-navigation a.active {
+  font-weight: bold;
+}
+
+.slug-start [data-node-type="user-stats"],
+.slug-start [data-node-type="user-stats"] .lw-body-bg {
+  background: var(--ash-700) !important;
+  color: var(--salmon-200) !important;
+}
+
+.slug-start [data-node-type="user-stats"] .learnworlds-main-text-very-large,
+.slug-start [data-node-type="user-stats"] .learnworlds-overline-text {
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+}
+
+
+.profile-tab-wrapper {
+  border-radius: var(--radius);
+  margin: 8px;
+}
+.profile-tab-wrapper:not(.profile-tab-wrapper-selected):hover { background-color: #2f2f2f !important; }
+.profile-tab-wrapper::after { display: none; }
+
+.slug-profile #profFrame { padding-top: 64px; }
+
+#badges,
+#coursesTaken {
+  background: var(--brand-bg) !important;
+  padding-top: 64px;
+  padding-bottom: 32px;
+}
+
+#badges .title .learnworlds-overline-text,
+#coursesTaken .title .learnworlds-overline-text {
+  font-size: 2em;
+}
+
+
+/* ==========================================================================
+   7. BANDEJA DE ENTRADA (INBOX)
+   ========================================================================== */
+
+.-rcvr-wrapper,
+.-msg-wrapper {
+  width: 554px;
+}
+
+.slug-inbox .-rcvr-wrapper,
+.slug-author-inbox .-rcvr-wrapper,
+.slug-inbox .-msg-wrapper,
+.slug-author-inbox .-msg-wrapper,
+.slug-inbox .msg-content-text,
+.slug-author-inbox .msg-content-text {
+  background: var(--silver);
+  border-radius: var(--radius);
+}
+
+.app-container { background-color: var(--body-bg-color) !important; }
+
+#inboxWrapper.app-wrapper {
+  padding: 0;
+}
+
+#inboxWrapper #firstCol,
+#inboxWrapper #secondCol{
+  padding-top: 0;
+  padding-bottom: 16px;
+}
+
+#inboxWrapper #firstCol > div {
+  background-color: var(--salmon-50);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+#inboxWrapper #firstCol > div > div { padding: var(--spacing-base); }
+
+#inboxWrapper #secondCol { padding-left: 8px !important; }
+#inboxWrapper #secondCol > div {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  padding: var(--spacing-base);
+}
+
+#inboxWrapper #listPeople { padding: 8px; }
+#inboxWrapper #listPeople .msg-desc-wrapper {
+  padding: 4px 8px;
+  border-radius: var(--radius);
+}
+
+#inboxWrapper #searchBox { background-color: var(--silver); }
+#inboxWrapper .social-search-input-wrapper { border-radius: var(--radius) !important; }
+#inboxWrapper .social-search-input-wrapper button { background: var(--silver); }
+
+/* Notif Form */
+#notifForm { position: relative; }
+#notifForm .learnworlds-input-normal {
+  background: var(--silver) !important;
+  border-radius: var(--radius) !important;
+  width: 100% !important;
+  padding: 4px;
+}
+#notifForm .flex { float: right; }
+#notifForm .post-editor-tools-icon--send {
+  border-radius: var(--radius);
+  position: absolute;
+  bottom: 0;
+  width: 48px;
+  height: 48px;
+}
+
+/* Lista de mensajes */
+
+#inboxWrapper #secondCol #sysMsg {
+  background: var(--salmon-100);
+}
+
+.msg-desc-wrapper .first-line,
+.msg-desc-wrapper .msg-desc-fst-part {
+  position: relative;
+}
+
+.msg-desc-wrapper .msg-desc-avatar,
+.msg-desc-wrapper .badge-story-icon,
+.msg-desc-wrapper .notif-icon {
+  width: var(--inbox-avatar-size);
+  height: var(--inbox-avatar-size);
+  margin-right: 8px;
+}
+
+.msg-desc-wrapper .notif-icon {
+  background-color: var(--white);
+  background-size: 32px;
+}
+
+.msg-desc-snd-part-text { line-height: 1.3em; }
+
+/* Fecha flotante — el ::before genera el fade de borde izquierdo */
+.msg-desc-snd-part-date {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  padding-left: 4px;
+  background-color: var(--salmon-50);
+}
+.msg-desc-snd-part-date::before {
+  content: "";
+  background: linear-gradient(to right, #FDF3EF00 0%, #FDF3EFFF 100%);
+  position: absolute;
+  width: 12px;
+  top: 0;
+  height: 100%;
+  left: -12px;
+}
+
+/* Estados interactivos del ítem de mensaje */
+.msg-desc-wrapper:hover {
+  background-color: var(--salmon-100) !important;
+  cursor: pointer;
+}
+.msg-desc-wrapper:hover .notif-icon { background-color: var(--white); }
+.msg-desc-wrapper:hover .msg-desc-snd-part-date { background-color: var(--salmon-100) !important; }
+.msg-desc-wrapper:hover .msg-desc-snd-part-date::before {
+  background: linear-gradient(to right, #FBE6DF00 0%, #FBE6DFFF 100%) !important;
+}
+
+.msg-desc-wrapper.open { background-color: var(--salmon-150) !important; }
+.msg-desc-wrapper.open .msg-desc-snd-part-date { background-color: var(--salmon-150) !important; }
+.msg-desc-wrapper.open .msg-desc-snd-part-date::before {
+  background: linear-gradient(to right, #F9D4C800 0%, #F9D4C8FF 100%) !important;
+}
+
+/* Indicador de mensaje no leído */
+.unread-msg {
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+.unread-msg .spot {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--white);
+}
+
+
+/* ==========================================================================
+   8. CUENTA (ACCOUNT)
+   ========================================================================== */
+
+#account-app { background-color: var(--brand-bg) !important; }
+
+.account-cnt {
+  background: var(--white);
+  border-radius: var(--radius) !important;
+}
+
+.account-context-menu-list {
+  background: var(--context-menu-bg) !important;
+  border-radius: var(--context-menu-radius) !important;
+}
+
+.account-table-header {
+  background: var(--silver) !important;
+  border-radius: var(--radius) var(--radius) 0 0;
+  border-color: var(--gray-light);
+}
+
+.account-value-display { margin-bottom: 16px; }
+
+.account-section { margin-bottom: 64px !important; }
+.account-section-disabled {
+  background: var(--white) !important;
+  opacity: 0.8 !important;
+}
+
+.account-section-title-icon { margin-right: 12px; }
+
+
+/* ==========================================================================
+   9. PÁGINA DE NOTICIAS (NEWS PAGE)
+   ========================================================================== */
+
+.slug-dailynews .lw-body-bg { background: var(--blog-blue-bg); }
+.slug-dailynews .lw-topbar { background: var(--blog-blue-menu-bg) !important; }
+.slug-dailynews .card { border: none; }
+.slug-dailynews .card-source-icon { border-radius: 50%; }
+
+.slug-dailynews .cardContainer,
+.slug-dailynews .card-top-image,
+.slug-dailynews .card-big-im,
+.slug-dailynews .card-left-part.card-left-colored-part.card-left-white-part {
+  background: var(--blog-blue);
+  border-radius: var(--radius);
+}
+
+.slug-dailynews .card-left-part.card-left-colored-part:not(.card-left-white-part),
+.slug-dailynews .cardContainer.lw-dark-bg {
+  background: var(--blog-blue-dark) !important;
+  border-radius: var(--radius);
+}
+
+/* Imagen circular con overlay de color — ::before aplica el tinte azul */
+.slug-dailynews .cardContainer.card-top-image .article-image {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: auto;
+  margin: 24px 48px 12px;
+  box-shadow: 0 0 16px #33333333;
+  transition: all ease-in 0.25s;
+}
+.slug-dailynews .cardContainer.card-top-image .article-image::before {
+  content: "";
+  display: block;
+  background: var(--blog-blue);
+  opacity: 0.4;
+  mix-blend-mode: color;
+  width: 100%;
+  aspect-ratio: 1/1;
+  transition: all ease-in 0.25s;
+}
+.slug-dailynews .cardContainer.card-top-image .article-image::after { background: none; }
+
+.slug-dailynews .cardContainer.card-top-image:hover .article-image {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px 2px #33333333;
+}
+.slug-dailynews .cardContainer.card-top-image:hover .article-image::before { opacity: 0; }
+
+/* Títulos */
+.slug-dailynews .card-title,
+.slug-dailynews .card-big-title {
+  font-weight: bold;
+  line-height: 1.2;
+}
+.slug-dailynews .card-title.white-link,
+.slug-dailynews .card-big-title.white-link {
+  color: var(--gray-light) !important;
+}

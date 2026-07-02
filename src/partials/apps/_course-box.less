@@ -1,0 +1,52 @@
+/* ==========================================================================
+   4. TARJETAS DE CURSOS (CUSTOM COURSE CARD)
+   ========================================================================== */
+
+.box-course {
+  border: 2px solid var(--black);
+  border-radius: var(--radius);
+  position: relative;
+  padding-bottom: 64px;
+}
+
+.box-course-title {
+  font-weight: bold;
+  font-size: 1.6em;
+  height: 180px;
+}
+
+.box-course-descr { display: none; }
+.box-course-cont { background-color: transparent; }
+
+.box-course-img {
+  background: transparent !important;
+  height: 24px !important;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.box-course-img::after { display: none !important; }
+
+/* Barra de progreso */
+.box-course-progress-bar {
+  height: 32px;
+  border-radius: 0 0 14px 14px;
+  overflow: hidden;
+  background: var(--nested-clear-bg);
+}
+
+.box-course-progress-interior { background-color: var(--black) !important; }
+
+.box-course-progress-perc {
+  color: var(--black) !important;
+  margin-right: 8px;
+  margin-bottom: 28px;
+  font-weight: bold;
+}
+.box-course-progress-perc::before {
+  content: "Completado ";
+  font-weight: normal;
+}
+

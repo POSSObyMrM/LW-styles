@@ -1,0 +1,63 @@
+/* Shared between apps.css and dynamic.css (byte-identical in both originals,
+   or resolved to dynamic.css's value where the two conflicted) */
+
+.icon-item { margin: 0 -4px; }
+.icon-item span { display: none; }
+.icon-item::after {
+  content: "";
+  margin-top: 8px;
+  display: block;
+  height: 26px;
+  width: 32px;
+}
+#inbox-icon::after   { content: url("https://lwfiles.mycourse.app/6906808006c937ca7bc53cda-public/svgs/7e34c6284d28503950f9935ecc6d3dd0.svg"); }
+#config-icon::after  { content: url("https://lwfiles.mycourse.app/6906808006c937ca7bc53cda-public/svgs/5d33071e5a8513a6b670a3adbff33486.svg"); }
+#profile-icon::after { content: url("https://lwfiles.mycourse.app/6906808006c937ca7bc53cda-public/svgs/01999538a939c72a37be788b1fbbda19.svg"); }
+#logout-icon::after  { content: url("https://lwfiles.mycourse.app/6906808006c937ca7bc53cda-public/svgs/a7bb1be3cf6b2f0cd8b02df59ff2caf0.svg"); }
+
+.hamburger-open .lw-topbar-hamburger-menu {
+  height: 65vh;
+  background: var(--brand-bg);
+  box-shadow: 0 0 0 1024px rgba(51,51,51,0.8), 0 0 64px var(--black), 0 0 22px var(--black);
+}
+
+.mobile-nav-menu .mobile-nav-menu-item { margin: 12px 0; }
+.mobile-nav-menu-item:nth-last-child(-n+4) {
+  display: inline-block;
+  margin: 12px;
+}
+
+.lw-topbar .learnworlds-section-content {
+  position: relative;
+}
+
+.lw-topbar .learnworlds-section-content:before,
+.lw-topbar .learnworlds-section-content:after {
+  content: '';
+  position: absolute;
+  bottom: -32px;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at var(--pos), transparent 16px, var(--salmon-100) 16px);
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* apps.css had "left: 0px" / "right: 0px" here; dynamic.css's "0" wins per conflict resolution */
+.lw-topbar .learnworlds-section-content::before {
+  left: 0;
+  --pos: 100% 100%;
+}
+
+.lw-topbar .learnworlds-section-content::after {
+  right: 0;
+  --pos: 0% 100%;
+}
+
+/* apps.css originally set only "backdrop-filter: blur(10px)" here; dynamic.css wins the conflict */
+.lw-topbar {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    box-shadow: 0px 0px 16px 0px rgba(51, 51, 51, 0.1);
+    /*background-color: var(--custom-program-color, --menu-bg) !important; */
+}

@@ -1,0 +1,149 @@
+/* ==========================================================================
+   7. BANDEJA DE ENTRADA (INBOX)
+   ========================================================================== */
+
+.-rcvr-wrapper,
+.-msg-wrapper {
+  width: 554px;
+}
+
+.slug-inbox .-rcvr-wrapper,
+.slug-author-inbox .-rcvr-wrapper,
+.slug-inbox .-msg-wrapper,
+.slug-author-inbox .-msg-wrapper,
+.slug-inbox .msg-content-text,
+.slug-author-inbox .msg-content-text {
+  background: var(--silver);
+  border-radius: var(--radius);
+}
+
+.app-container { background-color: var(--clear-bg-color) !important; }
+
+#inboxWrapper.app-wrapper {
+  padding: 0;
+}
+
+#inboxWrapper #firstCol,
+#inboxWrapper #secondCol{
+  padding-top: 0;
+  padding-bottom: 16px;
+}
+
+#inboxWrapper #firstCol > div {
+  background-color: var(--salmon-50);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+#inboxWrapper #firstCol > div > div { padding: var(--spacing-base); }
+
+#inboxWrapper #secondCol { padding-left: 8px !important; }
+#inboxWrapper #secondCol > div {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  padding: var(--spacing-base);
+}
+
+#inboxWrapper #listPeople { padding: 8px; }
+#inboxWrapper #listPeople .msg-desc-wrapper {
+  padding: 4px 8px;
+  border-radius: var(--radius);
+}
+
+#inboxWrapper #searchBox { background-color: var(--silver); }
+#inboxWrapper .social-search-input-wrapper { border-radius: var(--radius) !important; }
+#inboxWrapper .social-search-input-wrapper button { background: var(--silver); }
+
+/* Notif Form */
+#notifForm { position: relative; }
+#notifForm .learnworlds-input-normal {
+  background: var(--silver) !important;
+  border-radius: var(--radius) !important;
+  width: 100% !important;
+  padding: 4px;
+}
+#notifForm .flex { float: right; }
+#notifForm .post-editor-tools-icon--send {
+  border-radius: var(--radius);
+  position: absolute;
+  bottom: 0;
+  width: 48px;
+  height: 48px;
+}
+
+/* Lista de mensajes */
+
+#inboxWrapper #secondCol #sysMsg {
+  background: var(--salmon-100);
+}
+
+.msg-desc-wrapper .first-line,
+.msg-desc-wrapper .msg-desc-fst-part {
+  position: relative;
+}
+
+.msg-desc-wrapper .msg-desc-avatar,
+.msg-desc-wrapper .badge-story-icon,
+.msg-desc-wrapper .notif-icon {
+  width: var(--inbox-avatar-size);
+  height: var(--inbox-avatar-size);
+  margin-right: 8px;
+}
+
+.msg-desc-wrapper .notif-icon {
+  background-color: var(--white);
+  background-size: 32px;
+}
+
+.msg-desc-snd-part-text { line-height: 1.3em; }
+
+/* Fecha flotante — el ::before genera el fade de borde izquierdo */
+.msg-desc-snd-part-date {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  padding-left: 4px;
+  background-color: var(--salmon-50);
+}
+.msg-desc-snd-part-date::before {
+  content: "";
+  background: linear-gradient(to right, #FDF3EF00 0%, #FDF3EFFF 100%);
+  position: absolute;
+  width: 12px;
+  top: 0;
+  height: 100%;
+  left: -12px;
+}
+
+/* Estados interactivos del ítem de mensaje */
+.msg-desc-wrapper:hover {
+  background-color: var(--salmon-100) !important;
+  cursor: pointer;
+}
+.msg-desc-wrapper:hover .notif-icon { background-color: var(--white); }
+.msg-desc-wrapper:hover .msg-desc-snd-part-date { background-color: var(--salmon-100) !important; }
+.msg-desc-wrapper:hover .msg-desc-snd-part-date::before {
+  background: linear-gradient(to right, #FBE6DF00 0%, #FBE6DFFF 100%) !important;
+}
+
+.msg-desc-wrapper.open { background-color: var(--salmon-150) !important; }
+.msg-desc-wrapper.open .msg-desc-snd-part-date { background-color: var(--salmon-150) !important; }
+.msg-desc-wrapper.open .msg-desc-snd-part-date::before {
+  background: linear-gradient(to right, #F9D4C800 0%, #F9D4C8FF 100%) !important;
+}
+
+/* Indicador de mensaje no leído */
+.unread-msg {
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+.unread-msg .spot {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--white);
+}
+

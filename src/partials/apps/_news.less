@@ -1,0 +1,60 @@
+/* ==========================================================================
+   9. PÁGINA DE NOTICIAS (NEWS PAGE)
+   ========================================================================== */
+
+.slug-dailynews .lw-body-bg { background: var(--blog-blue-bg); }
+.slug-dailynews .lw-topbar { background: var(--blog-blue-menu-bg) !important; }
+.slug-dailynews .card { border: none; }
+.slug-dailynews .card-source-icon { border-radius: 50%; }
+
+.slug-dailynews .cardContainer,
+.slug-dailynews .card-top-image,
+.slug-dailynews .card-big-im,
+.slug-dailynews .card-left-part.card-left-colored-part.card-left-white-part {
+  background: var(--blog-blue);
+  border-radius: var(--radius);
+}
+
+.slug-dailynews .card-left-part.card-left-colored-part:not(.card-left-white-part),
+.slug-dailynews .cardContainer.lw-dark-bg {
+  background: var(--blog-blue-dark) !important;
+  border-radius: var(--radius);
+}
+
+/* Imagen circular con overlay de color — ::before aplica el tinte azul */
+.slug-dailynews .cardContainer.card-top-image .article-image {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: auto;
+  margin: 24px 48px 12px;
+  box-shadow: 0 0 16px #33333333;
+  transition: all ease-in 0.25s;
+}
+.slug-dailynews .cardContainer.card-top-image .article-image::before {
+  content: "";
+  display: block;
+  background: var(--blog-blue);
+  opacity: 0.4;
+  mix-blend-mode: color;
+  width: 100%;
+  aspect-ratio: 1/1;
+  transition: all ease-in 0.25s;
+}
+.slug-dailynews .cardContainer.card-top-image .article-image::after { background: none; }
+
+.slug-dailynews .cardContainer.card-top-image:hover .article-image {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px 2px #33333333;
+}
+.slug-dailynews .cardContainer.card-top-image:hover .article-image::before { opacity: 0; }
+
+/* Títulos */
+.slug-dailynews .card-title,
+.slug-dailynews .card-big-title {
+  font-weight: bold;
+  line-height: 1.2;
+}
+.slug-dailynews .card-title.white-link,
+.slug-dailynews .card-big-title.white-link {
+  color: var(--gray-light) !important;
+}

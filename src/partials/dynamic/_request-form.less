@@ -1,0 +1,37 @@
+.dossier-modal-container {
+  display: none; 
+  position: fixed; 
+  z-index: 999999; 
+  left: 0; top: 0; width: 100%; height: 100%; 
+  background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(3px);
+}
+.dossier-modal-box {
+  background-color: var(--salmon-200);
+  margin: 12% auto; 
+  padding: 35px; 
+  border-radius: 12px; 
+  width: 90%; max-width: 440px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  font-family: "Poppins", sans-serif;
+}
+.dossier-modal-close {
+  position: absolute; right: 20px; top: 15px; 
+  font-size: 28px; cursor: pointer; color: #888;
+}
+
+.dossier-modal-close:hover { color: #000; }
+#dossier-course-title { margin-top: 0; margin-bottom: 32px !important}
+#dossier-course-subtitle { margin-bottom: 32px !important; }
+.dossier-input-group { margin-bottom: 32px; text-align: left; }
+.dossier-input-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; color: #444; }
+.dossier-input-group input {
+  width: 100%; padding: 16px; border: none; background: var(--salmon-100); border-radius: 16px; box-sizing: border-box; font-size: 14px;
+}
+#dossier-submit-btn {
+  width: 100%; padding: 16px; background-color: var(--ash-700); 
+  font-family: "Poppins", sans-serif;
+  color: var(--salmon-200); border: none; border-radius: 16px; cursor: pointer; font-size: 22px; font-weight: 600; margin-top: 12px;
+}
+#dossier-submit-btn:hover { opacity: 0.9; }

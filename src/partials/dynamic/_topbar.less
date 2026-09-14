@@ -61,7 +61,8 @@ head:has(link[rel="canonical"][href*="/chutes"]) + body .lw-topbar .learnworlds-
   background: radial-gradient(circle at var(--pos), transparent 16px, var(--ash-900) 16px);
 }
 
-head:has(link[rel="canonical"][href*="/in-company"]) + body .lw-topbar {
+head:has(link[rel="canonical"][href*="/in-company"]) + body .lw-topbar,
+head:has(link[rel="canonical"][href*="/in-company"]) + body #pageContent {
   background-color: var(--incompany-bg) !important;
 }
 

@@ -138,3 +138,28 @@
   .lw-blog-card .learnworlds-image { margin: 24px 16px 0; }
   .lw-blog-card .learnworlds-image .lw-tags { right: 16px; top: -14px; }
 }
+
+
+/*. Activities header */
+
+head:has(link[rel="canonical"][href*="/blog/"]) + body .learnworlds-heading-large {
+  font-size: 6rem
+}
+
+.lw-screen-content, .lw-screen-content > div{
+  border-radius: 16px;
+}
+
+head:has(link[rel="canonical"][href*="/blog/"]) + body .lw-topbar {
+  transition: background ease-in-out 100ms;
+}
+
+
+head:has(link[rel="canonical"][href*="/blog/"]) + body .lw-topbar.darken-angles {
+  background: var(--salmon-200);
+}
+
+head:has(link[rel="canonical"][href*="/blog/"]) + body .lw-topbar.darken-angles .learnworlds-section-content:before,
+head:has(link[rel="canonical"][href*="/blog/"]) + body .lw-topbar.darken-angles .learnworlds-section-content:after { 
+background: radial-gradient(circle at var(--pos), transparent 16px, var(--salmon-200) 16px);
+}

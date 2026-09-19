@@ -31,6 +31,10 @@
   position: relative;
 }
 
+.lw-topbar {
+  transition: background ease-in-out 200ms;
+}
+
 .lw-topbar .learnworlds-section-content:before,
 .lw-topbar .learnworlds-section-content:after {
   content: '';
@@ -41,6 +45,7 @@
   background: radial-gradient(circle at var(--pos), transparent 16px, var(--salmon-100) 16px);
   pointer-events: none;
   z-index: 100;
+  transition: background ease-in-out 200ms;
 }
 
 /* apps.css had "left: 0px" / "right: 0px" here; dynamic.css's "0" wins per conflict resolution */

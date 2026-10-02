@@ -142,7 +142,7 @@
 
 /*. Activities header */
 
-head:has(link[rel="canonical"][href*="/blog/"]) + body .learnworlds-heading-large {
+head:has(meta[property="og:url"][content*="/blog/"]) + body .learnworlds-heading-large {
   font-size: 6rem
 }
 
@@ -150,16 +150,16 @@ head:has(link[rel="canonical"][href*="/blog/"]) + body .learnworlds-heading-larg
   border-radius: 16px;
 }
 
-head:has(link[rel="canonical"][href*="/blog/"]) + body .lw-topbar {
+head:has(meta[property="og:url"][content*="/blog/"]) + body .lw-topbar {
   transition: background ease-in-out 100ms;
 }
 
 
-head:has(link[rel="canonical"][href*="/blog/"]) + body .lw-topbar.darken-angles {
+head:has(meta[property="og:url"][content*="/blog/"]) + body .lw-topbar.darken-angles {
   background: var(--salmon-200);
 }
 
-head:has(link[rel="canonical"][href*="/blog/"]) + body .lw-topbar.darken-angles .learnworlds-section-content:before,
-head:has(link[rel="canonical"][href*="/blog/"]) + body .lw-topbar.darken-angles .learnworlds-section-content:after { 
+head:has(meta[property="og:url"][content*="/blog/"]) + body .lw-topbar.darken-angles .learnworlds-section-content:before,
+head:has(meta[property="og:url"][content*="/blog/"]) + body .lw-topbar.darken-angles .learnworlds-section-content:after { 
 background: radial-gradient(circle at var(--pos), transparent 16px, var(--salmon-200) 16px);
 }

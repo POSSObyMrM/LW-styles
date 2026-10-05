@@ -2,6 +2,7 @@
   background: var(--salmon-150);
   border-radius: var(--radius);
   border: none !important;
+  padding: 0 var(--gap-M) !important;
 }
 
 .slug-payment h3.learnworlds-heading3 {
@@ -35,8 +36,9 @@
 
 
 .single-product-view {
-  background: var(--salmon-200);
-  padding: var(--radius);
+  background: var(--dark-panel-color);
+  color: var(--brand-text);
+  padding: var(--gap-M);
   border-radius: var(--radius);
 }
 
@@ -50,11 +52,13 @@
 }
 
 .single-product-view .learnworlds-overline-text {
-  background: var(--salmon-150);
+  background: var(--salmon-400);
   display: inline-block;
-  padding: 4px 16px;
+  padding: 4px var(--gap-M);
   border-radius: var(--radius);
-  margin-bottom: 16px !important;
+  margin: var(--gap-M) 0 var(--gap-S) !important;
+  color: var(--ash-700);
+  font-weight: bold;
 }
 
 .js-payment-component {
@@ -67,10 +71,46 @@
 .learnworlds-main-text:has(> .lw-link-text) {
   font-size: 18px;
   border-top: 3px solid var(--salmon-100);
-  margin: 0 -24px;
-  padding: 24px 24px 0 24px;
+  margin: 0 calc(-1 * var(--gap-L));
+  padding: var(--gap-L) var(--gap-L) 0 var(--gap-L);
   .lw-link-text {
     font-weight: bold !important;
     text-decoration: underline;
   }
+}
+
+.payment-options-dropdown button {
+  background: var(--salmon-50) !important;
+  strong {
+    font-size: 1.5em;
+  }
+}
+
+.payment-options-dropdown__menu {
+  background: var(--salmon-50) !important;
+}
+
+.learnworlds-main-text-tiny:has(> svg) {
+  background: var(--ash-1000);
+  padding: 4px var(--gap-S);
+  border-radius: 8px;
+  svg {
+    color: var(--salmon-400);
+  }
+}
+
+div.with-flexible-parts.mt-10:has([data-testid="payment-order-summary--product-details--line-0--price-strikethrough"]) {
+  margin-top: var(--gap-L);
+}
+
+[data-testid="payment-order-summary--product-details--line-0--price-strikethrough"],
+[data-testid="payment-order-summary--product-details--subtotal"],
+[data-testid="payment-order-summary--product-details--discounts"] {
+  font-size: 24px !important;
+  text-align: right;
+}
+
+[data-testid="payment-order-summary--product-details--line-0--price"],
+[data-testid="payment-order-summary--product-details--order-total"] {
+  font-size: 32px !important;
 }

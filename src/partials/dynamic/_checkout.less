@@ -5,6 +5,14 @@
   padding: 0 var(--gap-M) !important;
 }
 
+@media (min-width: 1025px) {
+  .slug-payment [data-node-type="payment-product-details"] {
+    position: sticky;
+    top: calc(var(--header-h) + var(--gap-M));
+    align-self: flex-start;
+  }
+}
+
 .slug-payment h3.learnworlds-heading3 {
   text-transform: none !important;
 }
@@ -113,4 +121,12 @@ div.with-flexible-parts.mt-10:has([data-testid="payment-order-summary--product-d
 [data-testid="payment-order-summary--product-details--line-0--price"],
 [data-testid="payment-order-summary--product-details--order-total"] {
   font-size: 32px !important;
+}
+
+@media (min-width: 1025px) {
+  .slug-payment [data-node-type="payment-product-details"] {
+    position: sticky;
+    top: calc(var(--header-h) + var(--gap-M));
+    align-self: flex-start;
+  }
 }

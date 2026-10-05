@@ -75,7 +75,11 @@
 ========================================================================== */
 
 .product-enroll-template .with-dropdown {
-  padding: 26px 16px;
+  padding: 30px 16px;
+}
+
+.product-enroll-template .with-dropdown .lw-bb-1px-fadeout80:first-child {
+  border-bottom: 1px solid var(--accent-color);
 }
 
 .product-enroll-template .-course-enrollment-dropdown {
@@ -84,13 +88,29 @@
   border-top: 4px solid var(--ash-900)
 }
 
-.product-enroll-template .-course-enrollment-dropdown  .learnworlds-overline-text {
+.product-enroll-template .-course-enrollment-dropdown .learnworlds-element:nth-child(2) .learnworlds-overline-text::after {
+    content: "* Aplican recargos por el aplazamiento.";
+    display: block;
+    font-weight: normal;
+    text-transform: none;
+  }
+
+.product-enroll-template .-course-enrollment-dropdown .learnworlds-element .learnworlds-overline-text {
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .product-enroll-template .-course-enrollment-dropdown .lw-body-bg {
   background: none;
   
 }
+
+/* ==========================================================================
+    COLOR BASE COMO VARIABLE EN CADA CURSO
+========================================================================== */
+
+.color-base {color: var(--color-base, var(--salmon-300)) !important}
+.color-base-bk {background-color: var(--color-base, var(--salmon-300)) !important}
+.color-base-soft-bk {background-color: color-mix(in oklch, var(--color-base, var(--salmon-300)), white 30%) !important;}
+.color-base-alpha-bk {background-color: color-mix(in oklch, var(--color-base, var(--salmon-300)) 20%, transparent) !important;}

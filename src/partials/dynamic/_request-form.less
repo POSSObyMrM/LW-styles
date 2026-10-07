@@ -1,37 +1,73 @@
+/* Modal de solicitud (dossier / InCompany / avísame) — lo inyecta el script
+   LW-request-form. El script lo abre con style.display = "block". */
 .dossier-modal-container {
-  display: none; 
-  position: fixed; 
-  z-index: 999999; 
-  left: 0; top: 0; width: 100%; height: 100%; 
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  overflow-y: auto;                 /* si no cabe, se hace scroll dentro del modal */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;     /* que el scroll no se pase a la página de detrás */
+  padding: 24px 16px;
+  box-sizing: border-box;
   background-color: rgba(0,0,0,0.6);
   backdrop-filter: blur(3px);
 }
+/* Abierto: rejilla para centrarlo. margin:auto en la caja lo centra en vertical
+   y, si es más alto que la pantalla, se queda arriba y se puede hacer scroll. */
+.dossier-modal-container[style*="display: block"] { display: grid !important; }
+
 .dossier-modal-box {
+  margin: auto;
+  width: 100%;
+  max-width: 620px;
+  box-sizing: border-box;
+  padding: 40px 48px;
   background-color: var(--salmon-200);
-  margin: 12% auto; 
-  padding: 35px; 
-  border-radius: 12px; 
-  width: 90%; max-width: 440px;
+  border-radius: 16px;
   position: relative;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
   font-family: "Poppins", sans-serif;
 }
 .dossier-modal-close {
-  position: absolute; right: 20px; top: 15px; 
-  font-size: 28px; cursor: pointer; color: #888;
+  position: absolute; right: 20px; top: 14px;
+  font-size: 28px; line-height: 1; cursor: pointer; color: #888;
 }
-
 .dossier-modal-close:hover { color: #000; }
-#dossier-course-title { margin-top: 0; margin-bottom: 32px !important}
-#dossier-course-subtitle { margin-bottom: 32px !important; }
-.dossier-input-group { margin-bottom: 32px; text-align: left; }
-.dossier-input-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; color: #444; }
+#dossier-course-title { margin: 0 32px 12px 0 !important; }
+#dossier-course-subtitle { margin-bottom: 28px !important; }
+
+/* Escritorio: los campos de dos en dos (Nombre | Email, Empresa | Cargo) */
+#dossierForm { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; }
+#dossierForm > * { grid-column: 1 / -1; }
+#dossierForm > .dossier-input-group { grid-column: auto; }
+
+.dossier-input-group { margin-bottom: 20px; text-align: left; min-width: 0; }
+.dossier-input-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #444; }
 .dossier-input-group input {
-  width: 100%; padding: 16px; border: none; background: var(--salmon-100); border-radius: 16px; box-sizing: border-box; font-size: 14px;
+  width: 100%; padding: 14px 16px; border: 2px solid transparent; background: var(--salmon-100);
+  border-radius: 14px; box-sizing: border-box; font-size: 16px; /* 16px: iOS no hace zoom al escribir */
 }
+.dossier-input-group input.dossier-input-invalid { border-color: #c0392b; }
+.dossier-field-error { display: block; min-height: 0; margin-top: 4px; font-size: 12px; color: #c0392b; }
+.dossier-field-error:empty { display: none; }
+#dossierForm .lead-form__optin-checkbox { margin: 4px 0 8px; font-size: 14px; line-height: 1.45; }
+
 #dossier-submit-btn {
-  width: 100%; padding: 16px; background-color: var(--ash-700); 
-  font-family: "Poppins", sans-serif;
-  color: var(--salmon-200); border: none; border-radius: 16px; cursor: pointer; font-size: 22px; font-weight: 600; margin-top: 12px;
+  width: 100%; padding: 16px; margin-top: 12px;
+  background-color: var(--ash-700); color: var(--salmon-200);
+  font-family: "Poppins", sans-serif; font-size: 20px; font-weight: 600;
+  border: none; border-radius: 16px; cursor: pointer;
 }
 #dossier-submit-btn:hover { opacity: 0.9; }
+#dossier-submit-btn:disabled { opacity: 0.6; cursor: default; }
+
+/* Móvil: una columna, menos relleno */
+@media (max-width: 640px) {
+  .dossier-modal-container { padding: 12px; }
+  .dossier-modal-box { padding: 28px 22px 24px; border-radius: 14px; }
+  #dossierForm { grid-template-columns: 1fr; }
+  #dossier-course-subtitle { margin-bottom: 20px !important; }
+  .dossier-input-group { margin-bottom: 16px; }
+  #dossier-submit-btn { font-size: 18px; }
+}

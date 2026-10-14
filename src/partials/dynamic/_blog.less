@@ -249,68 +249,48 @@ background: radial-gradient(circle at var(--pos), transparent 16px, var(--salmon
 /* Card list */
 
 .card-list {
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: minmax(0, 35fr) minmax(0, 40fr) minmax(0, 25fr);
+  gap: var(--gap-S);
   width: 100%;
+  max-width: 100%;
   min-height: 220px;
-  border: 2px solid var(--black);
-  border-radius: var(--radius);
+  border: none;
+  container-type: inline-size; /* permite usar cqw dentro */
 }
 
 .card-list .row-section {
-  flex: 1;
+  min-width: 0;            /* clave: permite encoger por debajo del contenido */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 32px;
   padding: 24px;
   text-align: left;
+  border-radius: var(--radius);
 }
 
-.card-list .row-title-box {
-  position: relative;
-  flex: 0 0 35%;
-  border-radius: var(--radius-int) 0 0 var(--radius-int);
-  background-color: var(--black);
-  color: var(--blog-blue-bg) !important;
+/* Eliminar los flex-basis anteriores */
+.card-list .row-title-box,
+.card-list .row-info-box,
+.card-list .row-image-box { flex: none; }
+
+/* Título fluido, proporcional al ancho de la tarjeta */
+.card-list .lw-title {
+  font-size: clamp(1.5rem, 3.2cqw, 3rem) !important;
+  line-height: 1.1;
+  overflow-wrap: anywhere;  /* red de seguridad */
+  hyphens: auto;            /* requiere lang="es" en <html> */
 }
 
-.card-list:hover .row-title-box {
-  background-color: var(--blog-blue);
-  color: var(--black) !important;
-}
-
-.card-list .row-info-box {
-  flex: 0 0 40%;
-  background-color: var(--blog-blue);
-}
-
-.card-list:hover .row-info-box {
-  background-color: var(--black);
-  color: var(--blog-blue-bg);
-}
-
-.card-list .row-image-box {
-  position: relative;
-  flex: 0 0 25%;
-  border-radius: 0 var(--radius-int) var(--radius-int) 0;
-  background-size: cover;
-  background-position: center;
-}
-
-.card-list .js-learnworlds-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--blog-blue);
-  mix-blend-mode: multiply;
-  pointer-events: none;
+.card-list .lw-title span {
+  display: block;
+  font-size: clamp(1.2rem, 2.8cqw, 2rem) !important;
 }
 
 @media (max-width: 991px) {
-  .card-list { flex-direction: column; }
-  .card-list .row-section { flex: none; width: 100%; }
+  .card-list { grid-template-columns: minmax(0, 1fr); }
+  .card-list .lw-title { font-size: clamp(1.5rem, 7cqw, 2.5rem) !important; }
   .card-list .row-title-box { border-radius: var(--radius-int) var(--radius-int) 0 0; }
   .card-list .row-image-box { height: 200px; border-radius: 0 0 var(--radius-int) var(--radius-int); }
 }

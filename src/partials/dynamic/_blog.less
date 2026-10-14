@@ -91,6 +91,18 @@
   z-index: 2; /* Sobre imagen, bajo tags */
 }
 
+.card-list .js-learnworlds-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--salmon-100);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    overflow: hidden;
+}
+
 /* Etiquetas del Blog */
 .lw-blog-card .learnworlds-image .lw-tags {
   position: absolute !important;
@@ -188,6 +200,8 @@ background: radial-gradient(circle at var(--pos), transparent 16px, var(--salmon
 
 .lw-event-wrapper .col { display: flex; }
 
+
+
 /* Card mini */
 
 .card-mini {
@@ -226,13 +240,13 @@ background: radial-gradient(circle at var(--pos), transparent 16px, var(--salmon
   padding: 24px;
   border-radius: 0 0 var(--radius-int) var(--radius-int);
   background: var(--black);
-  color: var(--blog-blue-bg);
+  color: var(--body-bg-color);
   text-align: left;
 }
 
 .card-mini:hover .lw-header {
   background: var(--black);
-  color: var(--blog-blue-bg);
+  color: var(--body-bg-color);
 }
 
 .card-mini:hover .lw-body {
@@ -271,9 +285,20 @@ background: radial-gradient(circle at var(--pos), transparent 16px, var(--salmon
 }
 
 /* Eliminar los flex-basis anteriores */
-.card-list .row-title-box,
-.card-list .row-info-box,
-.card-list .row-image-box { flex: none; }
+.card-list .row-title-box {
+  flex: none;
+  background: var(--black);
+  color: var(--body-bg-color);
+}
+.card-list .row-info-box {
+  flex: none;
+  background: var(--body-bg-color);
+  color: var(--black);
+}
+.card-list .row-image-box { 
+  flex: none; 
+  background-size: cover;
+}
 
 /* Título fluido, proporcional al ancho de la tarjeta */
 .card-list .lw-title {
@@ -281,11 +306,24 @@ background: radial-gradient(circle at var(--pos), transparent 16px, var(--salmon
   line-height: 1.1;
   overflow-wrap: anywhere;  /* red de seguridad */
   hyphens: auto;            /* requiere lang="es" en <html> */
+  text-decoration: none;
+}
+
+.card-list:hover {
+  .row-title-box {
+    background: var(--body-bg-color);
+    color: var(--black);
+  }
+  .row-info-box {
+    background: var(--black);
+    color: var(--body-bg-color);
+  }
 }
 
 .card-list .lw-title span {
   display: block;
-  font-size: clamp(1.2rem, 2.8cqw, 2rem) !important;
+  font-size: clamp(1.2rem, 2.8cqw, 2.2rem) !important;
+  text-decoration: none !important;
 }
 
 @media (max-width: 991px) {

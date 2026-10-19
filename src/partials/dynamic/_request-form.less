@@ -62,6 +62,15 @@
    #beca-extra-fields teléfono, curso, las preguntas de la convocatoria y la declaración responsable. Un campo por fila
    (ocupa las dos columnas de la rejilla del formulario). */
 #beca-extra-fields { grid-column: 1 / -1; }
+/* En la solicitud de beca (el script añade .beca-form al formulario) nombre y email van cada uno en su fila. */
+#dossierForm.beca-form > .dossier-input-group { grid-column: 1 / -1; }
+
+/* Requisitos técnicos del curso elegido, entre el enunciado de la pregunta y sus opciones (vacío: no se ve) */
+.dossier-requisitos {
+  margin: 0 0 10px; padding: 10px 14px; font-size: 13px; line-height: 1.45; color: var(--ash-900);
+  background: var(--salmon-150); border-radius: 12px;
+}
+.dossier-requisitos:empty { display: none; }
 
 .dossier-input-group select,
 .dossier-input-group textarea {

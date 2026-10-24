@@ -73,25 +73,24 @@
 .autodiag-arquetipo-texto .autodiag-texto { margin-bottom: 0; }
 
 .autodiag-triangulo { display: block; width: 100%; height: auto; overflow: visible; }
-.autodiag-tri-base { fill: var(--salmon-50); stroke: var(--salmon-300); stroke-width: 2; }
+.autodiag-tri-base { fill: var(--salmon-50); stroke: var(--salmon-300); stroke-width: 2; stroke-linejoin: round; }
+.autodiag-tri-borde { fill: none; }
 .autodiag-tri-guia { stroke: var(--salmon-300); stroke-width: 1; stroke-dasharray: 3 3; }
-.autodiag-tri-halo { filter: blur(14px); }
-.autodiag-tri-halo-mejorar { fill: var(--ash-700); }
-.autodiag-tri-halo-fuerte { fill: #fff; }
-.autodiag-tri-fortalezas { fill: var(--salmon-300); fill-opacity: 0.45; stroke: var(--salmon-400); stroke-width: 1.5; stroke-linejoin: round; }
+/* Degradado de los vértices con reto (recortado al triángulo; su radio lo calcula el script) */
+.autodiag-tri-degradado-inicio { stop-color: #59404A; stop-opacity: 0.85; }
+.autodiag-tri-degradado-fin { stop-color: #59404A; stop-opacity: 0; }
+.autodiag-tri-fortalezas { fill: var(--salmon-300); fill-opacity: 0.4; stroke: var(--salmon-400); stroke-width: 1.5; stroke-linejoin: round; }
 .autodiag-tri-centro { fill: var(--salmon-400); }
-.autodiag-tri-vertice { stroke: var(--ash-700); stroke-width: 2; }
-.autodiag-tri-vertice-mejorar { fill: var(--ash-700); }
-.autodiag-tri-vertice-fuerte { fill: var(--salmon-50); }
+/* Vértices: color del borde del triángulo, con check (fortaleza) o exclamación (reto) */
+.autodiag-tri-vertice { fill: var(--salmon-300); }
+.autodiag-tri-icono { fill: none; stroke: var(--ash-900); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.autodiag-tri-icono .autodiag-tri-icono-punto { fill: var(--ash-900); stroke: none; }
 .autodiag-tri-etiqueta { font-family: "Poppins", sans-serif; font-size: 13px; font-weight: 600; fill: var(--ash-900); }
-.autodiag-tri-punto { fill: var(--ash-700); stroke: var(--salmon-50); stroke-width: 3; filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35)); }
+.autodiag-tri-punto { fill: var(--ash-700); stroke: var(--salmon-50); stroke-width: 6; filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.35)); }
 
-.autodiag-leyenda { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; margin: 10px 0 0; padding: 0; list-style: none; font-size: 12px; color: #6b5a5d; }
-.autodiag-leyenda li { display: inline-flex; align-items: center; gap: 6px; }
-.autodiag-leyenda-marca { display: inline-block; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--ash-700); box-sizing: border-box; }
-.autodiag-leyenda-punto { background: var(--ash-700); border-color: var(--salmon-50); box-shadow: 0 0 0 1px var(--ash-700); }
-.autodiag-leyenda-fuerte { background: var(--salmon-50); }
-.autodiag-leyenda-mejorar { background: var(--ash-700); }
+.autodiag-leyenda { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 10px 0 0; font-size: 13px; color: #6b5a5d; }
+.autodiag-leyenda-marca { display: inline-block; width: 20px; height: 20px; border-radius: 50%; box-sizing: border-box; }
+.autodiag-leyenda-punto { background: var(--ash-700); border: 4px solid var(--salmon-50); box-shadow: 0 0 0 1px var(--ash-700); }
 
 /* Secciones del resultado */
 .autodiag-seccion { margin-top: 32px; }

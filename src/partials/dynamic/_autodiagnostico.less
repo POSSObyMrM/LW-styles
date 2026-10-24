@@ -85,15 +85,13 @@
 .autodiag-tri-icono-reto { stroke: var(--salmon-100); }
 .autodiag-tri-icono-reto .autodiag-tri-icono-punto { fill: var(--salmon-100); }
 .autodiag-tri-etiqueta { font-family: "Poppins", sans-serif; font-size: 13px; font-weight: 600; fill: var(--ash-900); }
-.autodiag-tri-punto { fill: var(--ash-700); stroke: var(--salmon-50); stroke-width: 6; filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.35)); }
-
-.autodiag-leyenda { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 10px 0 0; font-size: 13px; color: #6b5a5d; }
-.autodiag-leyenda-marca { display: inline-block; width: 20px; height: 20px; border-radius: 50%; box-sizing: border-box; }
-.autodiag-leyenda-punto { background: var(--ash-700); border: 4px solid var(--salmon-50); box-shadow: 0 0 0 1px var(--ash-700); }
 
 /* Secciones del resultado */
 .autodiag-seccion { margin-top: 32px; }
 .autodiag-seccion-titulo { margin: 0 0 10px; font-size: 20px; font-weight: 600; }
+/* «Próximos pasos»: el cierre del resultado, con más presencia */
+.autodiag-seccion-proximos { margin-top: 40px; }
+.autodiag-seccion-proximos .autodiag-seccion-titulo { margin-bottom: 14px; font-size: 28px; line-height: 1.2; }
 
 .autodiag-retos { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .autodiag-reto { display: flex; gap: 14px; padding: 16px; background: var(--salmon-100); border-radius: 14px; }
@@ -157,12 +155,11 @@ textarea.autodiag-input { resize: vertical; min-height: 84px; line-height: 1.45;
 .autodiag-form-mensaje:empty { display: none; }
 .autodiag-recurso .autodiag-input:focus-visible { border-color: var(--salmon-200); }
 
-/* Próximos pasos: invitación */
-.autodiag-invitacion { margin-top: 8px; padding: 22px; background: var(--salmon-100); border-radius: 16px; }
-.autodiag-invitacion-titulo { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
-.autodiag-invitacion .autodiag-texto { margin-bottom: 14px; }
+/* Próximos pasos: CTAs grandes y, al pulsar «Escribirnos», el formulario en una caja */
 .autodiag-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
-.autodiag-form-contacto { margin-top: 16px; }
+.autodiag-acciones-principales { margin-top: 4px; }
+.autodiag-boton-grande { padding: 18px 32px; font-size: 18px; border-radius: 16px; }
+.autodiag-form-contacto { margin-top: 20px; padding: 22px; background: var(--salmon-100); border-radius: 16px; }
 .autodiag-form-contacto .autodiag-boton { justify-self: start; }
 
 /* Ver respuestas: una pregunta por fila, enunciado (2/3) y desplegable (1/3) */

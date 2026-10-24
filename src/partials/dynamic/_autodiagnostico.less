@@ -37,11 +37,6 @@
 .autodiag-opcion:hover { border-color: var(--ash-700); transform: translateY(-1px); }
 .autodiag-opcion:focus-visible { outline: 2px solid var(--ash-700); outline-offset: 2px; }
 .autodiag-opcion.is-elegida { color: var(--salmon-200); background: var(--ash-700); border-color: var(--ash-700); }
-/* En «Ver respuestas»: opciones más pequeñas */
-.autodiag-opciones-compactas { gap: 6px; }
-.autodiag-opciones-compactas .autodiag-opcion { padding: 10px 12px; font-size: 14px; }
-.autodiag-opciones-compactas.autodiag-opciones-lista { grid-template-columns: repeat(3, 1fr); }
-.autodiag-opciones-compactas.autodiag-opciones-lista .autodiag-opcion { text-align: center; }
 
 .autodiag-navegacion { display: flex; justify-content: space-between; min-height: 40px; margin-top: 16px; }
 
@@ -73,7 +68,7 @@
 .autodiag-arquetipo-texto .autodiag-texto { margin-bottom: 0; }
 
 .autodiag-triangulo { display: block; width: 100%; height: auto; overflow: visible; }
-.autodiag-tri-base { fill: var(--salmon-50); stroke: var(--salmon-300); stroke-width: 2; stroke-linejoin: round; }
+.autodiag-tri-base { fill: var(--salmon-100); stroke: var(--salmon-300); stroke-width: 2; stroke-linejoin: round; }
 .autodiag-tri-borde { fill: none; }
 .autodiag-tri-guia { stroke: var(--salmon-300); stroke-width: 1; stroke-dasharray: 3 3; }
 /* Degradado de los vértices con reto (recortado al triángulo; su radio lo calcula el script) */
@@ -83,8 +78,12 @@
 .autodiag-tri-centro { fill: var(--salmon-400); }
 /* Vértices: color del borde del triángulo, con check (fortaleza) o exclamación (reto) */
 .autodiag-tri-vertice { fill: var(--salmon-300); }
+.autodiag-tri-vertice-reto { fill: #59404A; }
 .autodiag-tri-icono { fill: none; stroke: var(--ash-900); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .autodiag-tri-icono .autodiag-tri-icono-punto { fill: var(--ash-900); stroke: none; }
+/* Sobre el vértice oscuro, el icono en el color de la card */
+.autodiag-tri-icono-reto { stroke: var(--salmon-100); }
+.autodiag-tri-icono-reto .autodiag-tri-icono-punto { fill: var(--salmon-100); }
 .autodiag-tri-etiqueta { font-family: "Poppins", sans-serif; font-size: 13px; font-weight: 600; fill: var(--ash-900); }
 .autodiag-tri-punto { fill: var(--ash-700); stroke: var(--salmon-50); stroke-width: 6; filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.35)); }
 
@@ -113,8 +112,11 @@
 .autodiag-lista { margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.55; }
 .autodiag-lista li + li { margin-top: 6px; }
 
-/* Punto fuerte: discreto, sin caja */
-.autodiag-fortalezas { margin-top: 14px; font-size: 13px; line-height: 1.5; color: #5a4b4e; }
+/* Punto fuerte: con el borde de la lista de retos pero en segundo plano (sin relleno, letra pequeña) */
+.autodiag-fortalezas {
+  margin-top: 12px; padding: 12px 16px; font-size: 13px; line-height: 1.5; color: #5a4b4e;
+  border: 2px solid var(--salmon-100); border-radius: 14px;
+}
 .autodiag-fortalezas-titulo { margin: 0 0 2px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .autodiag-fortalezas ul { margin: 0; padding: 0; list-style: none; }
 .autodiag-fortalezas strong { font-weight: 600; }
@@ -163,9 +165,23 @@ textarea.autodiag-input { resize: vertical; min-height: 84px; line-height: 1.45;
 .autodiag-form-contacto { margin-top: 16px; }
 .autodiag-form-contacto .autodiag-boton { justify-self: start; }
 
-/* Ver respuestas */
-.autodiag-respuestas { display: grid; gap: 18px; margin: 0 0 24px; padding: 0 0 0 20px; }
-.autodiag-respuesta-pregunta { margin: 0 0 8px; font-size: 15px; font-weight: 600; line-height: 1.4; }
+/* Ver respuestas: una pregunta por fila, enunciado (2/3) y desplegable (1/3) */
+.autodiag-respuestas { display: grid; gap: 0; margin: 0 0 24px; padding: 0; list-style: none; }
+.autodiag-respuesta {
+  display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 16px; align-items: center;
+  padding: 14px 0; border-bottom: 1px solid var(--salmon-300);
+}
+.autodiag-respuesta:first-child { border-top: 1px solid var(--salmon-300); }
+.autodiag-respuesta-pregunta { font-size: 14px; font-weight: 500; line-height: 1.45; }
+.autodiag-select {
+  width: 100%; padding: 11px 40px 11px 14px; box-sizing: border-box; font-family: inherit; font-size: 15px; font-weight: 500;
+  color: var(--ash-900); cursor: pointer; border: 2px solid transparent; border-radius: 12px;
+  -webkit-appearance: none; appearance: none; background-color: var(--salmon-100);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'%3E%3Cpath d='M1 1.5l6 6 6-6' stroke='%232A2A2A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; background-size: 12px 8px;
+}
+.autodiag-select:focus-visible { outline: none; border-color: var(--ash-700); }
+.autodiag-select.is-cambiado { border-color: var(--ash-700); background-color: var(--salmon-50); }
 .autodiag-acciones-respuestas { margin-top: 8px; }
 
 /* Pie: Ver respuestas · Repetir (discreto) */
@@ -182,12 +198,9 @@ textarea.autodiag-input { resize: vertical; min-height: 84px; line-height: 1.45;
 @media (max-width: 640px) {
   .autodiag-cabecera { margin-right: 28px; }
   .autodiag-opciones-escala { grid-template-columns: 1fr; }
-  /* «Ver respuestas»: las tres opciones en una fila, más pequeñas */
-  .autodiag-opciones-compactas.autodiag-opciones-escala,
-  .autodiag-opciones-compactas.autodiag-opciones-lista { grid-template-columns: repeat(3, 1fr); }
-  .autodiag-opciones-compactas .autodiag-opcion { padding: 8px 6px; font-size: 12px; }
   .autodiag-opcion { padding: 14px 16px; }
   .autodiag-pregunta { font-size: 18px; }
+  .autodiag-respuesta { grid-template-columns: 1fr; gap: 8px; }
   .autodiag-arquetipo { grid-template-columns: 1fr; gap: 16px; padding: 18px; }
   .autodiag-figura { max-width: 300px; margin: 0 auto; }
   .autodiag-recurso { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding: 22px 18px; }

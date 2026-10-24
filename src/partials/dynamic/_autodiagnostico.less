@@ -159,8 +159,20 @@ textarea.autodiag-input { resize: vertical; min-height: 84px; line-height: 1.45;
 .autodiag-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .autodiag-acciones-principales { margin-top: 4px; }
 .autodiag-boton-grande { padding: 18px 32px; font-size: 18px; border-radius: 16px; }
-.autodiag-form-contacto { margin-top: 20px; padding: 22px; background: var(--salmon-100); border-radius: 16px; }
-.autodiag-form-contacto .autodiag-boton { justify-self: start; }
+.autodiag-form-contacto {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 14px; row-gap: 12px;
+  margin-top: 20px; padding: 22px; background: var(--salmon-100); border-radius: 16px;
+}
+.autodiag-form-contacto .autodiag-campo-ancho,
+.autodiag-form-contacto .autodiag-casilla,
+.autodiag-form-contacto .autodiag-form-mensaje,
+.autodiag-form-contacto .autodiag-boton { grid-column: 1 / -1; }
+.autodiag-form-contacto .autodiag-boton { justify-self: start; margin-top: 4px; }
+.autodiag-casilla { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.45; cursor: pointer; }
+.autodiag-casilla input { flex-shrink: 0; width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--ash-700); }
+.autodiag-opcional { color: #6b5a5d; }
+/* Campo trampa para bots: fuera de la vista y de la navegación por teclado */
+.autodiag-trampa { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
 
 /* Ver respuestas: una pregunta por fila, enunciado (2/3) y desplegable (1/3) */
 .autodiag-respuestas { display: grid; gap: 0; margin: 0 0 24px; padding: 0; list-style: none; }
@@ -210,5 +222,6 @@ textarea.autodiag-input { resize: vertical; min-height: 84px; line-height: 1.45;
   .autodiag-recurso-texto, .autodiag-form-recurso { grid-column: 1 / -1; }
   .autodiag-form-recurso { grid-template-columns: 1fr; }
   .autodiag-boton { width: 100%; }
+  .autodiag-form-contacto { grid-template-columns: 1fr; padding: 18px; }
   .autodiag-form-contacto .autodiag-boton { justify-self: stretch; }
 }

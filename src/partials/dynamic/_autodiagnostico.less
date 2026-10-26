@@ -168,21 +168,8 @@ textarea.autodiag-input { resize: vertical; min-height: 84px; line-height: 1.45;
 .autodiag-form-contacto .autodiag-form-mensaje,
 .autodiag-form-contacto .autodiag-boton { grid-column: 1 / -1; }
 .autodiag-form-contacto .autodiag-boton { justify-self: start; margin-top: 4px; }
-.autodiag-casilla { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.45; cursor: pointer; }
-/* Casilla dibujada aquí: el CSS base de LearnWorlds oculta los checkbox nativos (usa los suyos), así que todo va
-   con !important para que se vea siempre. */
-.autodiag-casilla input[type="checkbox"] {
-  -webkit-appearance: none !important; appearance: none !important;
-  display: inline-block !important; position: static !important; visibility: visible !important; opacity: 1 !important;
-  clip: auto !important; flex-shrink: 0; width: 20px !important; height: 20px !important; min-width: 20px; margin: 0 !important; padding: 0 !important;
-  box-sizing: border-box; cursor: pointer; background: var(--salmon-50) !important;
-  border: 2px solid var(--ash-700) !important; border-radius: 5px !important;
-}
-.autodiag-casilla input[type="checkbox"]:checked {
-  background: var(--ash-700) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10' viewBox='0 0 12 10' fill='none'%3E%3Cpath d='M1 5l3.5 3.5L11 1.5' stroke='%23FBE6DF' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / 12px 10px !important;
-}
-.autodiag-casilla input[type="checkbox"]:focus-visible { outline: 2px solid var(--ash-700) !important; outline-offset: 2px; }
-.autodiag-casilla input[type="checkbox"].is-invalido { border-color: #c0392b !important; }
+/* Casillas: marcado y estilo de LearnWorlds (como la del formulario del dossier); aquí solo el tamaño del texto. */
+.autodiag-casilla { font-size: 13px; line-height: 1.45; }
 .autodiag-opcional { color: #6b5a5d; }
 .autodiag-casilla a { color: inherit !important; text-decoration: underline !important; text-underline-offset: 2px; }
 /* Campo trampa para bots: fuera de la vista y de la navegación por teclado */

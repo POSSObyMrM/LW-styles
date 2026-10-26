@@ -172,6 +172,18 @@ textarea.autodiag-input { resize: vertical; min-height: 84px; line-height: 1.45;
 .autodiag-casilla { font-size: 13px; line-height: 1.45; }
 .autodiag-opcional { color: #6b5a5d; }
 .autodiag-casilla a { color: inherit !important; text-decoration: underline !important; text-underline-offset: 2px; }
+/* Confirmación tras enviar el «Escríbenos»: sustituye al formulario, con protagonismo */
+.autodiag-confirmacion {
+  display: flex; align-items: flex-start; gap: 18px; margin-top: 20px; padding: 24px 26px;
+  color: var(--salmon-100); background: var(--ash-700); border-radius: 16px; outline: none;
+}
+.autodiag-confirmacion-icono {
+  display: flex; flex-shrink: 0; align-items: center; justify-content: center; width: 48px; height: 48px;
+  font-size: 24px; font-weight: 700; color: var(--ash-900); background: var(--salmon-200); border-radius: 50%;
+}
+.autodiag-confirmacion-titulo { margin: 4px 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2; color: var(--salmon-200); }
+.autodiag-confirmacion-texto { margin: 0; font-size: 16px; line-height: 1.5; }
+.autodiag-confirmacion-fecha { margin: 8px 0 0; font-size: 12px; opacity: 0.7; }
 /* Campo trampa para bots: fuera de la vista y de la navegación por teclado */
 .autodiag-trampa { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
 
